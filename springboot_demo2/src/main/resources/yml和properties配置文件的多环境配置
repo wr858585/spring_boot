@@ -1,0 +1,7 @@
+1. 对于yum问价和properties文件，其多环境配置的方式不一样
+    yml文件：通过---（连字符）分割
+        yml分割后的最上面区域：公共配置区域
+        其余区域：专有配置区域
+    properties文件：通过创建多个properties文件起作用
+        公共配置区域起名：application.properties
+        专有配置区域起名：application-*.properties --> *比如：dev/test/prod etc

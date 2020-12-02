@@ -1,0 +1,67 @@
+spring:
+  devtools:
+    restart:
+      enabled: true  #表示如果监测到配置文件或者代码改变之后，自动重启项目
+      additional-paths: src/main/java,resources/**,static/**,templates/** #设置重启的目录
+      additional-exclude: WEB-INF/** #classpath目录下的WEB-INF文件夹内容修改不重启
+  profiles:
+    active:  dev
+logging:
+  level:
+    com.atguigu.springboot_demo2: debug
+
+student:
+  id: 1
+  age: 20
+  name: 魏超
+  gender: true
+  birth: 2010-01-01
+  book: {bookId: 1,bookName: 堂吉诃德2, price: 99.89}
+    #bookId: 1
+    #bookName: 堂吉诃德2
+  #price: 99.89
+  animals:
+    - fish
+    - pig
+    - cat
+    - pig
+  hobby: ['singing','song','rap','song']
+  books[0]: {bookId: 20, bookName: '三个火枪手', price: 99.8}
+  books[1]:
+    bookId: 21
+    bookName: '四个火枪手'
+    price: 99.8
+
+#yml文件中，---表示连字符，划分文件区域
+#最上面的一个区域：公共配置区
+#其余下面的区域：转悠配置区（如：开发环境，测试环境etc）
+
+#公共配置区
+server:
+  servlet:
+    context-path: /boot
+
+
+---
+#专有配置区（开发环境）
+server:
+  port: 82
+
+spring:
+  profiles:  dev
+
+---
+#专有配置区（测试环境）
+server:
+  port: 83
+
+spring:
+  profiles: test
+
+---
+#专有配置区（线上环境）
+server:
+  port: 84
+
+spring:
+  profiles: prod
