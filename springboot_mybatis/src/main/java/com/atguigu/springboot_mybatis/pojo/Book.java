@@ -18,6 +18,15 @@ public class Book {
                 '}';
     }
 
+    public Book(Integer bookId, String bookName, Double price) {
+        this.bookId = bookId;
+        this.bookName = bookName;
+        this.price = price;
+    }
+
+    public Book() {
+    }
+
     public Integer getBookId() {
         return bookId;
     }

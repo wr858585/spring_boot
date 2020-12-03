@@ -16,6 +16,6 @@ public interface BookMapper {
     public List<Book> getBookList();
 
     @Options(useGeneratedKeys = true, keyProperty = "bookId")
-    @Insert("insert into book(bookName,price) values(#{bookName},#{price}")
+    @Insert("insert into book(bookName,price) values(#{bookName},#{price})")
     void addBook(Book book);
 }
